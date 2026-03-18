@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+import Image from "next/image";
 
 const TEAM = [
   {
@@ -13,6 +11,7 @@ const TEAM = [
     quote:
       "Passionate about empowering rural communities through financial literacy and sustainable education. Every workshop we run is a step towards a more equitable India.",
     src: "/pavan-naik.jpeg",
+    imagePosition: "50% 30%",
     linkedin: "https://www.linkedin.com/in/pavan-m-naik-44b53b143",
   },
   {
@@ -20,21 +19,13 @@ const TEAM = [
     designation: "Co-Founder & COO",
     quote:
       "Dedicated to building impactful grassroots programs that create lasting change in Tier 3 communities across Karnataka. Operations that serve people — that is my purpose.",
-    src: "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?w=600&h=600&fit=crop&crop=face",
+    src: "/Praveen.png",
+    imagePosition: "50% 0%",
     linkedin: "https://www.linkedin.com/in/praveena-k-69073337b/",
   },
 ];
 
 export default function TeamSection() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isDark = mounted && resolvedTheme === "dark";
-
   return (
     <section id="team" className="section-padding bg-transparent">
       <div className="max-w-7xl mx-auto">
@@ -57,39 +48,44 @@ export default function TeamSection() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col items-center gap-8">
-          <CircularTestimonials
-            testimonials={TEAM}
-            autoplay
-            colors={{
-              name: isDark ? "#F8FAFC" : "#1E3A5F",
-              designation: "#F59E0B",
-              testimony: isDark ? "#CBD5E1" : "#475569",
-              arrowBackground: isDark ? "#334155" : "#1E3A5F",
-              arrowForeground: "#ffffff",
-              arrowHoverBackground: "#F59E0B",
-            }}
-            fontSizes={{
-              name: "28px",
-              designation: "16px",
-              quote: "17px",
-            }}
-          />
-          {/* LinkedIn links */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {TEAM.map((member) => (
-              <a
-                key={member.name}
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1E3A5F] dark:bg-slate-700 hover:bg-[#F59E0B] text-white text-sm font-semibold transition-colors"
-              >
-                <Linkedin size={16} />
-                {member.name}
-              </a>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {TEAM.map((member, index) => (
+            <motion.article
+              key={member.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
+              className="rounded-3xl overflow-hidden bg-white/80 dark:bg-slate-900/70 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <div className="relative aspect-[16/10] w-full lg:aspect-[16/9]">
+                <Image
+                  src={member.src}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: member.imagePosition }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+
+              <div className="p-6 sm:p-7">
+                <h3 className="text-2xl font-bold text-[#1E3A5F] dark:text-slate-100">{member.name}</h3>
+                <p className="text-base font-semibold text-orange-500 mt-1">{member.designation}</p>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed mt-5">{member.quote}</p>
+
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-xl bg-[#1E3A5F] dark:bg-slate-700 hover:bg-[#F59E0B] text-white text-sm font-semibold transition-colors"
+                >
+                  <Linkedin size={16} />
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

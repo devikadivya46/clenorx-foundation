@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import Image from "next/image";
-import { GooeyText } from "@/components/ui/gooey-text-morphing";
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+});
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -33,6 +39,22 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 }
 
 export default function HeroSection() {
+  const companyName = "ClenorX Foundation";
+  const [typedName, setTypedName] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      index += 1;
+      setTypedName(companyName.slice(0, index));
+      if (index >= companyName.length) {
+        clearInterval(interval);
+      }
+    }, 85);
+
+    return () => clearInterval(interval);
+  }, [companyName]);
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-white dark:bg-slate-950 pt-20 lg:pt-32">
 
@@ -100,28 +122,29 @@ export default function HeroSection() {
           {/* LEFT: Text content */}
           <div className="order-1 lg:order-1">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold mb-5"
-            >
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-              Not-for-Profit &middot; Karnataka, India
-            </motion.div>
-
-            <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="mb-5 mt-6"
+              className="mb-6 mt-2"
             >
-              <GooeyText
-                texts={["Help Children", "Build Futures", "Change Lives"]}
-                morphTime={1.2}
-                cooldownTime={2.5}
-                className="h-[72px] sm:h-[84px] xl:h-[96px]"
-                textClassName="font-extrabold text-4xl sm:text-5xl xl:text-6xl leading-tight tracking-tight text-slate-900 dark:text-slate-50 [text-shadow:0_2px_10px_rgba(15,23,42,0.14)]"
-              />
+              <h1
+                className={`${nunito.className} font-extrabold text-4xl sm:text-5xl xl:text-6xl leading-tight tracking-tight text-slate-900 dark:text-slate-50 [text-shadow:0_2px_10px_rgba(15,23,42,0.14)]`}
+                aria-label={companyName}
+              >
+                {typedName}
+                <span
+                  className="ml-1 inline-block h-[0.9em] w-[2px] align-middle bg-orange-500/90 animate-pulse"
+                  aria-hidden="true"
+                />
+              </h1>
+              <div className="w-24 h-1 rounded-full bg-orange-500/80 mt-4" />
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-4 max-w-lg font-medium">
+                Empowering children and communities through practical financial literacy.
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-sm font-semibold mt-5 dark:bg-orange-950/20 dark:border-orange-900/40 dark:text-orange-300">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                Not-for-Profit &middot; Karnataka, India
+              </div>
             </motion.div>
 
             <motion.p

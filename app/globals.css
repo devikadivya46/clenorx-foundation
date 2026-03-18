@@ -258,6 +258,27 @@ h1, h2, h3, h4, h5, h6 {
   to   { transform: translateX(calc(-100% - var(--gap, 1rem))); }
 }
 
+/* Dual-track marquee loop for truly seamless scrolling */
+@keyframes marqueeTrackA {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+}
+
+@keyframes marqueeTrackB {
+  from { transform: translateX(calc(100% + var(--gap, 1rem))); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-track-a {
+  animation: marqueeTrackA var(--duration, 72s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.animate-marquee-track-b {
+  animation: marqueeTrackB var(--duration, 72s) linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+
 .link-glow {
   position: relative;
   display: inline-block;

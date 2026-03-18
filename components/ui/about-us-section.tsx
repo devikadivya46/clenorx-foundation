@@ -45,7 +45,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, delay, direction
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
       <motion.div
-        className="flex items-center gap-3 mb-3"
+        className="flex items-center gap-3 mb-4"
         initial={{ x: direction === "left" ? -20 : 20, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: delay + 0.2 }}
@@ -57,12 +57,12 @@ function ServiceItem({ icon, secondaryIcon, title, description, delay, direction
           {icon}
           {secondaryIcon}
         </motion.div>
-        <h3 className="text-xl font-medium text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
+        <h3 className="text-2xl md:text-[1.65rem] font-semibold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
           {title}
         </h3>
       </motion.div>
       <motion.p
-        className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed pl-12"
+        className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed pl-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: delay + 0.4 }}
@@ -70,7 +70,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, delay, direction
         {description}
       </motion.p>
       <motion.div
-        className="mt-3 pl-12 flex items-center text-orange-500 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="mt-3 pl-12 flex items-center text-orange-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0 }}
       >
@@ -165,8 +165,6 @@ export default function AboutUsSection({
   tagline = "DISCOVER OUR STORY",
   heading = "About Us",
   description = "We are a passionate team dedicated to creating meaningful impact.",
-  imageSrc = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
-  imageAlt = "About image",
   services = [],
   stats = [],
   ctaHeading = "Ready to make a difference?",
@@ -235,31 +233,13 @@ export default function AboutUsSection({
           {description}
         </motion.p>
 
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {/* 2-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 relative items-start">
           {/* Left */}
           <div className="space-y-16">
             {leftServices.map((service, index) => (
               <ServiceItem key={`left-${index}`} icon={service.icon} secondaryIcon={service.secondaryIcon} title={service.title} description={service.description} delay={index * 0.2} direction="left" />
             ))}
-          </div>
-
-          {/* Centre image */}
-          <div className="flex justify-center items-center order-first md:order-none mb-8 md:mb-0">
-            <motion.div className="relative w-full max-w-xs" variants={itemVariants}>
-              <motion.div className="rounded-md overflow-hidden shadow-xl" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover" />
-                <motion.div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent flex items-end justify-center p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.9 }}>
-                  <motion.a href="#programs" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    Our Programs <ArrowRight className="w-4 h-4" />
-                  </motion.a>
-                </motion.div>
-              </motion.div>
-              <motion.div className="absolute inset-0 border-4 border-blue-400 dark:border-blue-500 rounded-md -m-3 z-[-1]" initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.6 }} />
-              <motion.div className="absolute -top-4 -right-8 w-16 h-16 rounded-full bg-orange-100 dark:bg-orange-950/20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.9 }} style={{ y: y1 }} />
-              <motion.div className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-950/20" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.1 }} style={{ y: y2 }} />
-            </motion.div>
           </div>
 
           {/* Right */}

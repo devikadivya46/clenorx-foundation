@@ -40,15 +40,17 @@ export function TestimonialsWithMarquee({
 
         {/* Marquee */}
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <div
-            className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:40s]"
-          >
-            <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
-              {[...Array(4)].map((_, setIndex) =>
-                testimonials.map((testimonial, i) => (
-                  <TestimonialCard key={`${setIndex}-${i}`} {...testimonial} />
-                ))
-              )}
+          <div className="relative w-full overflow-hidden p-2 [--gap:1rem] [--duration:56s]">
+            <div className="animate-marquee-track-a flex w-max shrink-0 [gap:var(--gap)] flex-row [will-change:transform]">
+              {testimonials.map((testimonial, i) => (
+                <TestimonialCard key={`track-a-${testimonial.author.name}-${i}`} {...testimonial} />
+              ))}
+            </div>
+
+            <div className="animate-marquee-track-b absolute left-0 top-2 flex w-max shrink-0 [gap:var(--gap)] flex-row [will-change:transform]">
+              {testimonials.map((testimonial, i) => (
+                <TestimonialCard key={`track-b-${testimonial.author.name}-${i}`} {...testimonial} />
+              ))}
             </div>
           </div>
 

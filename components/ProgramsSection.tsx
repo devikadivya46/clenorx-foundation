@@ -10,7 +10,7 @@ const PROGRAMS = [
     name: "School Financial Literacy",
     role: "Children & Students",
     quote:
-      "Interactive classroom sessions teaching children the basics of saving, budgeting, and smart money habits. We equip students in schools and colleges with financial knowledge, essential life skills, wellness practices, and adolescent health awareness.",
+      "Classroom sessions teaching saving, budgeting, and smart money habits.",
     imageSrc: "https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=800&q=80&fit=crop",
   },
   {
@@ -18,7 +18,7 @@ const PROGRAMS = [
     name: "Digital Banking Awareness",
     role: "Youth & Rural Communities",
     quote:
-      "Hands-on training for rural students and youth on mobile payments, UPI, internet banking, and safe digital financial practices to prepare them for today's digital economy.",
+      "Training on UPI, internet banking, and safe digital financial practices.",
     imageSrc: "https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?w=800&q=80&fit=crop",
   },
   {
@@ -26,7 +26,7 @@ const PROGRAMS = [
     name: "Rural Financial Camps",
     role: "SHG & Communities",
     quote:
-      "On-ground financial camps for SHG women and rural communities covering savings, micro-finance, debt management, and collective income growth — delivered in local languages.",
+      "Financial camps covering savings, micro-finance, and income growth.",
     imageSrc: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop",
   },
 ];

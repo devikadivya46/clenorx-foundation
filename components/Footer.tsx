@@ -117,7 +117,7 @@ export default function Footer() {
             <ul className="space-y-3 mb-6 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-blue-400 mt-0.5 shrink-0" />
-                <span className="text-slate-400">Devaraj Aras Nagar, Opp. Marikamba Temple, Shikaripura – 577427, Karnataka</span>
+                <span className="text-slate-400">Devaraj Aras Nagar, Opposite to Marikamba Temple, Shikaripura – 577427, Karnataka</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone size={14} className="text-green-400 shrink-0 mt-0.5" />

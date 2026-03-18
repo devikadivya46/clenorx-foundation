@@ -29,7 +29,7 @@ export default function ContactSection() {
     {
       icon: MapPin,
       label: "Address",
-      value: "Devaraj Aras Nagar, Opp. Marikamba Temple,\nShikaripura - 577427, Karnataka",
+      value: "Devaraj Aras Nagar, Opposite to Marikamba Temple,\nShikaripura - 577427, Karnataka",
       color: "text-blue-600",
       bg: "bg-blue-50",
     },

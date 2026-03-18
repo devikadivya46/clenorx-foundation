@@ -59,12 +59,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative h-14 w-48 sm:w-56">
+          <div className="relative h-16 w-16 sm:h-[68px] sm:w-[68px]">
             <Image
               src="/logo.png"
               alt="ClenorX Foundation"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left mix-blend-multiply dark:mix-blend-normal"
               priority
             />
           </div>

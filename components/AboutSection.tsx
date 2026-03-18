@@ -3,7 +3,7 @@
 import {
   Flame, Eye, Target, HelpCircle,
   BookOpen, Wifi, Users, CheckCircle,
-  Award, Calendar, TrendingUp, Star, Sparkles,
+  Star, Sparkles,
 } from "lucide-react";
 import AboutUsSection from "@/components/ui/about-us-section";
 import { TestimonialsWithMarquee } from "@/components/ui/testimonials-with-marquee";
@@ -15,7 +15,7 @@ const ABOUT_CARDS = [
       handle: "Core Objective",
       avatar: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=150&h=150&fit=crop&crop=center",
     },
-    text: "To enhance the quality of life of school and college students by equipping them with financial knowledge, essential life skills, wellness practices, and adolescent health awareness.",
+    text: "Equip students with financial knowledge and essential life skills.",
   },
   {
     author: {
@@ -23,7 +23,7 @@ const ABOUT_CARDS = [
       handle: "What We See",
       avatar: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=150&h=150&fit=crop&crop=center",
     },
-    text: "To promote awareness, education, and well-being for the benefit of society at large — creating a financially literate generation across India.",
+    text: "Create a financially literate generation across India.",
   },
   {
     author: {
@@ -31,7 +31,7 @@ const ABOUT_CARDS = [
       handle: "What We Do",
       avatar: "https://images.unsplash.com/photo-1573155993874-d5d48af862ba?w=150&h=150&fit=crop&crop=center",
     },
-    text: "To educate and empower individuals to make informed and responsible financial decisions that improve their lives and community.",
+    text: "Empower people to make smart financial decisions.",
   },
   {
     author: {
@@ -39,7 +39,7 @@ const ABOUT_CARDS = [
       handle: "The Foundation",
       avatar: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=150&h=150&fit=crop&crop=center",
     },
-    text: "Financial literacy is the foundation of a secure life. Teaching it early shapes responsible, capable citizens and breaks cycles of poverty.",
+    text: "Foundation for secure futures and breaking poverty cycles.",
   },
   {
     author: {
@@ -47,7 +47,7 @@ const ABOUT_CARDS = [
       handle: "Our Reach",
       avatar: "https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3cd?w=150&h=150&fit=crop&crop=center",
     },
-    text: "We serve school and college students, Self-Help Groups (SHGs), and rural communities in Tier 3 cities and villages across Karnataka.",
+    text: "Students, Self-Help Groups, and rural communities across Karnataka.",
   },
   {
     author: {
@@ -55,7 +55,7 @@ const ABOUT_CARDS = [
       handle: "How We Work",
       avatar: "https://images.unsplash.com/photo-1605106702842-01a887a31122?w=150&h=150&fit=crop&crop=center",
     },
-    text: "Interactive workshops, digital banking camps, entrepreneurship seed programmes, and community-led SHG training — all delivered in local languages.",
+    text: "Workshops, camps, and training delivered in local languages.",
   },
 ];
 
@@ -110,13 +110,6 @@ const SERVICES = [
   },
 ];
 
-const STATS = [
-  { icon: <Award className="w-6 h-6" />, value: 200, label: "Workshops Conducted", suffix: "+" },
-  { icon: <Users className="w-6 h-6" />, value: 10000, label: "Students Reached", suffix: "+" },
-  { icon: <Calendar className="w-6 h-6" />, value: 3, label: "Years of Impact", suffix: "" },
-  { icon: <TrendingUp className="w-6 h-6" />, value: 50, label: "Communities Served", suffix: "+" },
-];
-
 export default function AboutSection() {
   return (
     <section id="about">
@@ -127,7 +120,6 @@ export default function AboutSection() {
         imageSrc="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
         imageAlt="Indian children smiling"
         services={SERVICES}
-        stats={STATS}
         ctaHeading="Ready to make a difference?"
         ctaSubtext="Join us in building a financially literate generation across India."
         ctaButtonLabel="Get Involved"
