@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProgramsSection from "@/components/ProgramsSection";
-import ImpactDashboard from "@/components/ImpactDashboard";
 import VolunteerSection from "@/components/VolunteerSection";
 import DonationSection from "@/components/DonationSection";
 import TeamSection from "@/components/TeamSection";
@@ -16,7 +15,6 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ProgramsSection />
-      <ImpactDashboard />
       <VolunteerSection />
       <DonationSection />
       <TeamSection />
